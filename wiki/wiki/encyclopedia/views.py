@@ -59,5 +59,5 @@ def search(request):
         if wiki_entry.lower() == query.lower():
             return redirect('wiki/' + str(query))
     else:
-        
+        pass
 
