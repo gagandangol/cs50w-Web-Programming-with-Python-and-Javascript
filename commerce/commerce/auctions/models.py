@@ -14,6 +14,8 @@ class GenericModel(models.Model):
     class Meta:
         abstract = True
 
+class Category(GenericModel):
+    name = models.CharField(max_length=20)
 
 class Listings(GenericModel):
 
@@ -22,7 +24,7 @@ class Listings(GenericModel):
     min_amount = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     image_url = models.TextField()
     is_closed = models.BooleanField(default=False)
-
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 class Bids(GenericModel):
     
